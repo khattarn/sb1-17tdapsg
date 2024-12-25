@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Profile Settings">
+    </ActionBar>
+    
+    <GridLayout rows="*, auto">
+        <StackLayout row="0" class="p-4 space-y-4">
+            <Button text="Edit Profile" tap="{{ onEditProfileTap }}" class="bg-blue-600 text-white p-4 rounded-lg" />
+            <Button text="My Favorites" tap="{{ onFavoritesTap }}" class="bg-blue-600 text-white p-4 rounded-lg" />
+        </StackLayout>
+        
+        <GridLayout row="1" columns="*, *" class="bg-white p-4 border-t border-gray-200">
+            <Button col="0" text="🏠 Home" tap="{{ onHomeTap }}" class="bg-blue-600 text-white p-6 m-2 rounded-lg" />
+            <Button col="1" text="Logout" tap="{{ onLogoutTap }}" class="bg-red-500 text-white p-6 m-2 rounded-lg" />
+        </GridLayout>
+    </GridLayout>
+</Page>

@@ -1,0 +1,35 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Food Preferences" />
+    
+    <ScrollView>
+        <StackLayout class="p-4 space-y-4">
+            <Label text="Customize Your Experience" class="text-xl font-bold text-center mb-4" />
+            
+            <!-- Cuisine Preferences -->
+            <Label text="Favorite Cuisine" class="font-bold mt-4" />
+            <ListPicker items="{{ cuisines }}" selectedIndex="{{ preferences.favoriteCuisine }}" 
+                class="p-4 bg-white rounded" />
+            
+            <!-- Spice Level -->
+            <Label text="Preferred Spice Level" class="font-bold mt-4" />
+            <ListPicker items="{{ spiceLevels }}" selectedIndex="{{ preferences.spiceLevelPreference }}"
+                class="p-4 bg-white rounded" />
+            
+            <!-- Dietary Restrictions -->
+            <Label text="Dietary Restrictions" class="font-bold mt-4" />
+            <Repeater items="{{ dietaryRestrictions }}">
+                <Repeater.itemTemplate>
+                    <GridLayout columns="auto, *" class="p-2" tap="{{ $parent.onRestrictionTap }}">
+                        <CheckBox col="0" checked="{{ selected }}" isEnabled="false" />
+                        <Label col="1" text="{{ label }}" class="ml-2" />
+                    </GridLayout>
+                </Repeater.itemTemplate>
+            </Repeater>
+
+            <!-- Save Button -->
+            <Button text="Save Preferences" 
+                tap="{{ onSaveTap }}" 
+                class="bg-blue-600 text-white p-4 rounded-lg mt-8 mb-4" />
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="gradient-bg">
+    <StackLayout class="w-full h-full items-center justify-center">
+        <Label text="👨‍🍳" class="chef-cap" />
+        <Label text="Chef's Table" class="logo-text" />
+        <ActivityIndicator busy="true" color="#ffffff" />
+    </StackLayout>
+</Page>

@@ -1,0 +1,89 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Registration" />
+    
+    <ScrollView>
+        <StackLayout class="p-4 space-y-4 bg-white">
+            <Label text="Create Account" class="text-xl font-light text-center mb-4 text-gray-700" />
+            <Label text="Please make sure you add your favorites below, as it will help us to send you special invites, deals and offers as per your preference!!!" 
+                   textWrap="true"
+                   class="text-blue-600 italic font-medium text-center mb-4 px-4 leading-relaxed" />
+            
+            <!-- Basic Information -->
+            <TextField 
+                hint="Name" 
+                text="{{ name }}" 
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500" 
+                autocorrect="false"
+                autocapitalizationType="words" />
+            <TextField 
+                hint="Surname" 
+                text="{{ surname }}" 
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500"
+                autocorrect="false"
+                autocapitalizationType="words" />
+            
+            <!-- Contact Information -->
+            <TextField 
+                hint="Email" 
+                text="{{ email }}" 
+                keyboardType="email" 
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500"
+                autocorrect="false"
+                required="true" />
+            <TextField 
+                hint="Mobile Number" 
+                text="{{ phone }}" 
+                keyboardType="phone"
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500"
+                required="true" />
+            
+            <!-- Special Dates -->
+            <GridLayout rows="auto, auto" columns="*, *" class="space-x-2">
+                <Label row="0" col="0" text="Birthday" class="font-light ml-1 text-gray-700" />
+                <GridLayout row="0" col="1" columns="auto, *" class="ml-1">
+                    <Label col="0" text="Anniversary" class="font-light text-gray-700" />
+                    <Switch col="1" checked="{{ showAnniversary }}" class="ml-2" />
+                </GridLayout>
+                <DatePicker row="1" col="0" 
+                   date="{{ birthday }}"
+                   day="{{ birthdayDay }}"
+                   month="{{ birthdayMonth }}"
+                   class="p-4 bg-gray-100 rounded text-gray-700 font-medium" />
+                <DatePicker row="1" col="1"
+                   date="{{ anniversary }}"
+                   day="{{ anniversaryDay }}"
+                   month="{{ anniversaryMonth }}"
+                   class="p-4 bg-gray-100 rounded text-gray-700 font-medium"
+                   visibility="{{ showAnniversary ? 'visible' : 'collapsed' }}" />
+            </GridLayout>
+            
+            <!-- Preferences -->
+            <Label text="Favorite Restaurant" class="font-light ml-1 text-gray-700" />
+            <ListPicker items="{{ restaurants }}" 
+                selectedIndex="{{ selectedRestaurantIndex }}"
+                class="p-4 bg-gray-100 rounded text-gray-700" />
+                
+            <Label text="Favorite Cuisine" class="font-light ml-1 text-gray-700" />
+            <ListPicker items="{{ cuisines }}"
+                selectedIndex="{{ selectedCuisineIndex }}"
+                class="p-4 bg-gray-100 rounded text-gray-700" />
+                
+            <TextField 
+                hint="Favorite Dish" 
+                text="{{ favoriteDish }}"
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500" />
+                
+            <TextView 
+                hint="Wishlist" 
+                text="{{ wishlist }}"
+                class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500 text-lg"
+                height="100" />
+            
+            <!-- Register Button -->
+            <Button
+                text="Submit" 
+                tap="{{ onRegisterTap }}" 
+                class="bg-blue-600 text-white p-4 rounded-lg mt-4" />
+        </StackLayout>
+    </ScrollView>
+</Page>

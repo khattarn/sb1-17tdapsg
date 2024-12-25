@@ -1,0 +1,31 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="bg-gray-100">
+    <ActionBar title="Login" />
+    
+    <StackLayout class="p-4 space-y-4 bg-white">
+        <!-- Phone Input -->
+        <TextField 
+            hint="Phone Number" 
+            text="{{ phone }}" 
+            keyboardType="phone" 
+            class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500" 
+            required="true" />
+
+        <!-- OTP Input (shown after requesting OTP) -->
+        <TextField
+            visibility="{{ showOtpInput ? 'visible' : 'collapsed' }}"
+            hint="Enter OTP" 
+            text="{{ otp }}" 
+            keyboardType="number"
+            class="p-4 bg-gray-100 rounded text-gray-700 placeholder:text-gray-500"
+            required="true" />
+
+        <!-- Request OTP / Verify Buttons -->
+        <Button 
+            text="{{ showOtpInput ? 'Verify OTP' : 'Request OTP' }}" 
+            tap="{{ showOtpInput ? onVerifyOTP : onRequestOTP }}" 
+            class="bg-blue-600 text-white p-4 rounded-lg" />
+
+        <!-- Register Button -->
+        <Button text="Register New Account" tap="{{ onRegisterTap }}" class="bg-white border border-blue-600 text-blue-600 p-4 rounded-lg" />
+    </StackLayout>
+</Page>
